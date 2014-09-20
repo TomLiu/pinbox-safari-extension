@@ -1,0 +1,18 @@
+<html>
+<head>
+<script>
+// Set up the Listener
+safari.application.addEventListener("command", performCommand, false);
+
+// Function to perform when event is received
+function performCommand(event) {
+    // Make sure event comes from the button
+    if (event.command == "open-pinbox") {
+        var currentUrl = safari.application.activeBrowserWindow.activeTab.url;
+        var currentTitle = safari.application.activeBrowserWindow.activeTab.title;
+        var targetUrl = "pinbox://6133studio.com?url=" + encodeURIComponent(currentUrl) + "&title=" + encodeURIComponent(currentTitle);
+        safari.application.activeBrowserWindow.activeTab.url = targetUrl;
+    }}
+</script>
+</head>
+</html>
